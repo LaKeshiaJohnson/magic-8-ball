@@ -6,6 +6,13 @@ $(document).ready(function(){
 		var roundedNum = Math.floor(randomNum);
 		var answer = this.listOfAnswers[roundedNum];
 		console.log(question, answer);
+		$("#answer").text(answer);
 	};
-	//magic8Ball.askQuestion("Will I win the lottery?");
+	var onClick = function() {
+ 
+    var question = prompt("ASK A YES/NO QUESTION!");
+    magic8Ball.askQuestion(question);
+};
+ 
+$("#questionButton").click( onClick );
 });
