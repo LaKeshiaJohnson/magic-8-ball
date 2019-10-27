@@ -9,12 +9,14 @@ $(document).ready(function(){
 		var answer = this.listOfAnswers[roundedNum];
 		console.log(question, answer);
 		$("#answer").text(answer);
+
 	};
 	$("#answer").hide();
-	
+	$(resetButton).hide();
+
 	var onClick = function() {
 		$("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/magic8ballQuestion.png");
- 
+
 		//wait half a second before showing prompt
 	   setTimeout(
 	       function() {
@@ -23,13 +25,18 @@ $(document).ready(function(){
 	           $("#8ball").effect( "shake" );
 	           magic8Ball.askQuestion(question);
 	       }, 500);
+	   $(this).hide();
+	   $(resetButton).show();
 	};
 
 	var reset = function() {
 		$("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/magic8ballQuestion.png");
 		$("#answer").hide();
+		$(this).hide();
+	   $(questionButton).show();
 	};
 
-	$("#questionButton").click( onClick );
-	$("#resetButton").click( reset );
+	
+		$("#questionButton").click( onClick );
+		$("#resetButton").click( reset );
 });
