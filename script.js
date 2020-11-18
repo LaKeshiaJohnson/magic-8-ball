@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	var magic8Ball = {};
 	magic8Ball.listOfAnswers = ["yes", "no", "ask again later", "chances look good", "positively", "very doubtful", "outlook not so good", "better not tell you now"];
+	
 	magic8Ball.askQuestion = function (question) {
 		$("#8ball").attr("src", "https://s3.amazonaws.com/media.skillcrush.com/skillcrush/wp-content/uploads/2016/09/magic8ballAnswer.png");
 		$("#answer").fadeIn(4000);
@@ -9,8 +10,9 @@ $(document).ready(function(){
 		var answer = this.listOfAnswers[roundedNum];
 		console.log(question, answer);
 		$("#answer").text(answer);
-
+		$(resetButton).show();
 	};
+
 	$("#answer").hide();
 	$(resetButton).hide();
 
@@ -26,7 +28,7 @@ $(document).ready(function(){
 	           magic8Ball.askQuestion(question);
 	       }, 500);
 	   $(this).hide();
-	   $(resetButton).show();
+	   //$(resetButton).show();
 	};
 
 	var reset = function() {
